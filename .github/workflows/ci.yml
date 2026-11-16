@@ -1,0 +1,25 @@
+name: Australian breach lab
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  attack-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Every attack succeeds when its control is off and fails when it is on
+        run: python -m au.cli matrix
+      - name: Handouts are in sync with the module registry
+        run: python scripts/build_handouts.py && git diff --exit-code labs instructor notes/maestro-reference.md
+      - name: Tests
+        run: python -m pytest -q

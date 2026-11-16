@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adolfiro-Australia AI</title>
+<meta name="description" content="An AI security lab framed around recent Australian cyber incidents. Seven attack-and-defend modules plus a MAESTRO threat model, runnable with one command and no API keys.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#home">adolfiro-australia<b>.ai</b></a>
+  <nav aria-label="Primary">
+    <a href="#modules">Modules</a><a href="#arch">Architecture</a>
+    <a href="#maestro">MAESTRO</a><a href="#run">Run it</a><a href="#about">About</a>
+  </nav>
+</div></header>
+<main id="main"><div class="wrap">
+<section class="hero" id="home" style="border-top:0">
+  <div class="eyebrow">// AUSTRALIAN AI BREACH LAB</div>
+  <h1>AI security, framed around Australian breaches.</h1>
+  <p class="lead">Eight modules, each named for a recent Australian cyber incident. The lab shows how an AI agent built on the same pipeline would make the same failure easier to repeat, and which control stops it. Runs with <strong>one command</strong>, <strong>no API key</strong> and <strong>no cloud account</strong>.</p>
+  <div class="cta">
+    <a class="btn primary" href="#run">Run it locally</a>
+    <a class="btn" href="https://github.com/Adolfiro17/australian-ai-breach-lab">View the code</a>
+  </div>
+<div class="term" role="img" aria-label="Terminal output of the attack matrix"><span class="p">$</span> ./start.sh matrix
+Module                                            Vulnerable          Secured
+--------------------------------------------------------------------------------
+1. Over-privileged service account (Optus)        <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+2. Wide tool and no egress wall (Medibank)        <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+3. Tampered third-party skill (Latitude)          <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+4. Record oversharing (MediSecure)                <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+5. Destructive action with no HITL (DP World)     <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+6. The misleading approval card (Qantas)          <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+7. Capstone: 2026 retail incident (fictional)     <span class="bad">attack succeeds</span>     <span class="ok">blocked</span>
+8. MAESTRO threat model                           analytical          analytical
+
+<span class="ok">RESULT: PASS</span></div>
+  <div class="stats">
+    <div class="stat"><b>8</b><span>lab modules</span></div>
+    <div class="stat"><b>13</b><span>switchable controls</span></div>
+    <div class="stat"><b>0</b><span>API keys needed</span></div>
+    <div class="stat"><b>45</b><span>automated tests</span></div>
+  </div>
+</section>
+
+<section id="modules">
+  <h2>Modules</h2>
+  <p class="lead">Each attack module has a Secured and a Vulnerable mode. Vulnerable switches off only the controls that module is about, so you can see which control carries the weight. Module 8 is analytical: it applies MAESTRO to the lab's architecture.</p>
+  <div class="grid">
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/01-optus-overprivilege.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">INFORMATION</span><h3>1. Over-privileged service account</h3>
+      <p>Optus pattern (2022). An agent inherits its service account's permissions.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/02-medibank-wide-tool.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">LAYERS 2&amp;3</span><h3>2. Wide tool and no egress wall</h3>
+      <p>Medibank pattern (2022). A SQL tool + an unlimited egress is a credential away from bulk exfil.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/03-latitude-tampered-skill.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">SUPPLY CHAIN</span><h3>3. Tampered third-party skill</h3>
+      <p>Latitude pattern (2023). A skill, reviewed once, can be swapped at any time.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/04-medisecure-oversharing.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">INFORMATION</span><h3>4. Record oversharing</h3>
+      <p>MediSecure pattern (2024). Context minimisation is a security control, not a performance one.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/05-dpworld-destructive-action.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">ACTIONS</span><h3>5. Destructive action with no HITL</h3>
+      <p>DP World pattern (2023). Irreversible actions must be bound to one approved call.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/06-qantas-misleading-approval.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">HITL BOUNDARY</span><h3>6. The misleading approval card</h3>
+      <p>Qantas pattern (2025). A human can only consent to what they are shown.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/07-capstone-retail.md" style="text-decoration:none;color:inherit">
+      <span class="badge live">CAPSTONE</span><h3>7. The full retail incident</h3>
+      <p>A fictional 2026 Australian retailer scenario. Every attack at once.</p></a>
+    <a class="card" href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/labs/08-maestro-threat-model.md" style="text-decoration:none;color:inherit">
+      <span class="badge">ANALYTICAL</span><h3>8. MAESTRO threat model</h3>
+      <p>Apply the MAESTRO framework to the lab's own architecture.</p></a>
+  </div>
+</section>
+
+<section id="arch">
+  <h2>Architecture</h2>
+  <p>Every tool call from the AI agent passes through one gateway. Its checks are grouped by the lecture's three layers: information, instructions, actions, with identity and audit as cross-cutting services.</p>
+  <div class="diagram"><img src="architecture.svg" alt="Architecture: untrusted inputs reach the retail AI agent via a supply-chain gate that pins skills and MCP tools by hash. Every tool call from the agent passes through the tool gateway, which checks identity, tool allow-list, narrow-tool enforcement, per-user authorization, egress and bound human approval. The human approver reads a card built by the gateway. The gateway writes an append-only audit record and either allows the call or blocks it."></div>
+</section>
+
+<section id="maestro">
+  <h2>MAESTRO as the second lens</h2>
+  <p>The three-layer lecture framework is the designer's lens. MAESTRO is the reviewer's lens: it asks whether you have covered every layer of the system. Module 8 is an analytical module that applies MAESTRO to the lab's own architecture.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Layer</th><th>Scope</th><th>Lab modules</th></tr>
+    <tr><td>L1 Foundation Models</td><td>The underlying LLM</td><td>1, 2, 4</td></tr>
+    <tr><td>L2 Data Operations</td><td>Retrieval, context assembly, embeddings</td><td>2, 4</td></tr>
+    <tr><td>L3 Agent Frameworks</td><td>Tool definitions, orchestration</td><td>2, 5</td></tr>
+    <tr><td>L4 Deployment Infrastructure</td><td>Workload identity, network, secrets</td><td>1, 2</td></tr>
+    <tr><td>L5 Evaluation and Observability</td><td>Red teaming, audit</td><td>CI matrix</td></tr>
+    <tr><td>L6 Security and Compliance</td><td>HITL, policy enforcement</td><td>5, 6</td></tr>
+    <tr><td>L7 Agent Ecosystem</td><td>Skills, MCP, integrations</td><td>3</td></tr>
+  </table></div>
+</section>
+
+<section id="run">
+  <h2>Run it</h2>
+  <p>You need Python 3.11 or newer and Git. The only network use is the first <code>pip install</code>.</p>
+<pre><code>git clone https://github.com/Adolfiro17/australian-ai-breach-lab.git
+cd australian-ai-breach-lab
+./start.sh          # Windows: .\start.ps1</code></pre>
+  <div class="tablewrap"><table>
+    <tr><th>Command</th><th>What it does</th></tr>
+    <tr><td><code>./start.sh</code></td><td>Open the lab in the browser at <code>http://localhost:8501</code></td></tr>
+    <tr><td><code>./start.sh matrix</code></td><td>Run every attack in both modes</td></tr>
+    <tr><td><code>./start.sh run 3 --mode vulnerable</code></td><td>Run one module in the terminal</td></tr>
+    <tr><td><code>./start.sh run 2 --disable trust_label,narrow_tool</code></td><td>Choose exactly which controls are off</td></tr>
+    <tr><td><code>./start.sh maestro</code></td><td>Print the MAESTRO threat model report</td></tr>
+    <tr><td><code>./start.sh test</code></td><td>Run the test suite</td></tr>
+  </table></div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>Built by Adolf Sey. All companies, hosts, people, prescriptions and secrets are fictional. The vulnerable mode is vulnerable on purpose: do not deploy it, and never point these techniques at systems you do not own.</p>
+  <p>This repository is <strong>not</strong> a report of any real Australian breach. See the <a href="https://github.com/Adolfiro17/australian-ai-breach-lab/blob/main/ATTRIBUTION.md">attribution notes</a> and the companion <a href="https://github.com/Adolfiro17/secure-agentic-soc-lab">Secure Agentic SOC Lab</a> for the HITL work.</p>
+</section>
+</div></main>
+<footer><div class="wrap">Adolfiro-Australia AI &middot; a deliberately vulnerable lab &middot; run locally, no keys required</div></footer>
+</body>
+</html>
