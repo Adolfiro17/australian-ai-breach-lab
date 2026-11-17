@@ -46,7 +46,7 @@ Attempt each lab first. These are model answers, cross-checked against the code 
 
 1. Vulnerable: junior rep reads cross-territory; run_sql dumps customers; customer list is emailed externally; a tampered skill loads; health data surfaces in a channel; a container is released without authority; a customer preference is updated on the wrong record.
 2. Secured: every attack is denied and the legitimate renewal lookup, prescription pickup, manifest update and C-101 preference refresh all complete.
-3. Five controls stand alone in the capstone: user_authz, supply_chain, redaction, hitl_binding and approval_display. The others overlap and are survivable with the capstone's attack set.
+3. Four controls stand alone in the capstone: user_authz, supply_chain, hitl_binding and approval_display. The rest overlap, so removing any one is survivable with this attack set.
 4. Limits: mock model, simulated tools, scripted humans, in-process gateway. Production needs real workload identity, a policy service, secrets manager, and an approval channel the agents cannot write to.
 
 ## Lab 8: MAESTRO threat model
